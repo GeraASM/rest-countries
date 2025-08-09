@@ -1,0 +1,112 @@
+.countries__form {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.countries-content {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    background-color: var(--bg-change);
+    box-shadow: 0 0 5px var(--shadow-change);
+}
+
+.countries__icon-search {
+    display: grid;
+    place-items: center;
+}
+.countries__input-search {
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding-left: 32px;
+    line-height: 1.35;
+    font-size: 12px;
+    background-color: var(--bg-change);
+    color: var(--color-grey-250);
+}
+
+#search {
+    outline: none;
+}
+
+.countries__filter {
+    display: block;
+    width: 200px;
+    color: var(--color-text);
+    position: relative;
+    cursor: pointer;
+}
+
+.countries__filter summary {
+    background-color: var(--bg-change);
+    box-shadow: 0 0 5px var(--shadow-change);
+    color: inherit;
+    padding: 24px;
+    font-size: 12px; line-height: 1.35;
+}
+
+.countries__filter summary::marker {
+    content: '';
+}
+
+.countries__filter::after {
+    content: '^';
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.countries__filter[open]::after {
+    transform: rotate(180deg);
+
+}
+
+.countries__list {
+    margin-top: 16px;
+    background-color: var(--bg-change);
+    box-shadow: 0 0 5px var(--shadow-change);
+    color: inherit;
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 24px;
+    display: grid;
+    gap: 8px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+.countries__continent {
+    font-size: 12px; line-height: 1.35;
+    cursor: pointer;
+}
+
+.countries__continent:hover {
+    background-color: var(--color-grey-50);
+}
+
+.countries__continent:focus {
+    padding-left: 8px;
+    outline-color: var(--color-grey-250);
+}
+
+
+@media screen and (min-width: 768px) {
+    .countries__form {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .countries-content {
+        flex-grow: 1;
+        max-width: 480px;
+    }
+    
+}

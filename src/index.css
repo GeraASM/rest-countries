@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*, *::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+:root {
+   --color-grey-950: #111517;   
+   --color-grey-400: #808080;   
+   --color-grey-350: #979797;
+   --color-grey-300: #B2B2B2;   
+   --color-grey-250: #C4C4C4;   
+   --color-grey-50: #FCFCFC;   
+   --color-blue-950: #202C36;
+   --color-blue-900: #2B3844;
+
+   --bg-change: #fff;
+   --bg-body: #fff;
+
+   --color-text: var(--color-blue-950);
+   --shadow-change: #00000034;
+
+}
+
+
+body {
+   width: 100%;
+   height: 100vh;
+   font-family: "Nunito Sans", sans-serif;
+   background-color: var(--bg-body);
+}
+.mode-black {
+   --bg-change: var(--color-blue-900);
+   --bg-body: var(--color-blue-950);
+   --shadow-change: var(--color-grey-950);
+   --color-text: #fff;
+}
+
+.mode-black svg {
+   fill: #fff !important;
+}
+
+.mode-black .countries__input-search {
+   color: #fff;
+}
+.mode-black .countries__input-search::placeholder {
+   color: #fff;
+}
+
+label, input, button {
+   font-family: inherit;
+   display: block;
+}
