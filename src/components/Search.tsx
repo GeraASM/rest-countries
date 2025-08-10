@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import type { Country } from "./CountryType";
 
 export function Search() {
-    const { data, loading} = useFetchCountries("/data.json");
+    const { data, loading} = useFetchCountries("./data.json");
 
     const [dataFilter, setDataFilter] = useState([]);
     const [countryInformation, setCountryInformation] = useState<Country | null>(null);
