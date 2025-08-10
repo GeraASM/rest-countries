@@ -11,7 +11,6 @@ export function Search() {
 
     const [dataFilter, setDataFilter] = useState([]);
     const [countryInformation, setCountryInformation] = useState(null);
-
     useEffect(() => {
         if (!loading && data) {
             setDataFilter(data);
@@ -46,16 +45,24 @@ export function Search() {
         const country = data.find((country: any) => country.alpha3Code == code);
         return country.name;
     }
+
+
+    const [searchValue, setSearchValue] = useState("");
+    function searchCountry() {
+        getCountryInformation(searchValue);
+    }
+
+
     return (
         <>
             {
                 !countryInformation && <search>
-                <form className="countries__form" role="search" action="/search-countries" method="get">
+                <form className="countries__form" role="search">
                     <div className="countries-content">
-                        <label htmlFor="search" className="countries__icon-search">
+                        <button onClick={searchCountry} className="countries__btn-search">
                             <IconSearch />
-                        </label>
-                        <input id="search" className="countries__input-search" type="search" placeholder="Search for a country..." />
+                        </button>
+                        <input onChange={(e) => setSearchValue(e.target.value)} value={searchValue} id="search" className="countries__input-search" type="search" placeholder="Search for a country..." />
                     </div>
                     <details className="countries__filter" name="filter" id="filter">
                         <summary>Filter by Region</summary>
@@ -91,7 +98,7 @@ export function Search() {
             {
                 countryInformation &&
 
-            <section className="countries__option">
+            <section key={countryInformation.alpha2Code} className="countries__option">
                 <button onClick={clearCountry} className="countries__back"><ArrowLeft/> Back</button>
                 <section className="countries__block">
                     <figure className="countries__flag">

@@ -5,17 +5,23 @@
 }
 
 .countries-content {
-    height: 48px;
+    height: 64px;
     display: flex;
     align-items: center;
-    padding: 0 32px;
+    padding-right: 32px;
+    padding-left: 10px;
     background-color: var(--bg-change);
     box-shadow: 0 0 5px var(--shadow-change);
 }
 
-.countries__icon-search {
+.countries__btn-search {
+    border: none; 
+    background-color: transparent;
     display: grid;
     place-items: center;
+    height: 100%;
+    width: 70px;
+    cursor: pointer;
 }
 .countries__input-search {
     height: 100%;
@@ -56,10 +62,11 @@
     content: '^';
     font-family: inherit;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 24px;
+    cursor: pointer;
 }
 .countries__filter[open]::after {
     transform: rotate(180deg);
