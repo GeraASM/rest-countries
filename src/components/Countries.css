@@ -9,6 +9,12 @@
     margin-top: 64px;
 }
 
+.countries__loading {
+    color: var(--color-text);
+    font-size: 64px;
+    text-align: center;
+}
+
 .countries__country {
     border-radius: 5px;
     cursor: pointer;

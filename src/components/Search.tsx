@@ -5,12 +5,13 @@ import "./Countries.css";
 import "./Search.css";
 import "./CountryInformation.css";
 import { useState, useEffect } from "react";
+import type { Country } from "./CountryType";
 
 export function Search() {
-    const { data, loading, error } = useFetchCountries("/data.json");
+    const { data, loading} = useFetchCountries("/data.json");
 
     const [dataFilter, setDataFilter] = useState([]);
-    const [countryInformation, setCountryInformation] = useState(null);
+    const [countryInformation, setCountryInformation] = useState<Country | null>(null);
     useEffect(() => {
         if (!loading && data) {
             setDataFilter(data);
@@ -27,6 +28,9 @@ export function Search() {
         }
     }
 
+
+
+
     function getCountryInformation(name: string) {
         const country = data.find((country: any) => country.name == name);
         if (country) setCountryInformation(country);
@@ -36,7 +40,7 @@ export function Search() {
         setCountryInformation(null);
     }
 
-    function fixComillas(lenguages: Array): string {
+    function fixComillas(lenguages: { name: string }[]): string {
         const leaguagesModify = lenguages.map(lenguage => lenguage.name);
         return leaguagesModify.join(", ");
     }
@@ -51,7 +55,6 @@ export function Search() {
     function searchCountry() {
         getCountryInformation(searchValue);
     }
-
 
     return (
         <>
@@ -78,7 +81,7 @@ export function Search() {
             </search>
             }
             {!countryInformation && <section className="countries-block">
-                        {loading && <p>Countries are loading...</p>}
+                        {loading && <p className="countries__loading">Countries are loading...</p>}
                         {dataFilter && dataFilter.map((country: any) => (
                             <article onClick={() => getCountryInformation(country.name)} key={country.numericCode} className="countries__country">
                                 <figure className="countries__picture">
