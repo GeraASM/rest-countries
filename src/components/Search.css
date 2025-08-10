@@ -90,11 +90,13 @@
 
 .countries__continent {
     font-size: 12px; line-height: 1.35;
+    color: var(--color-text);
     cursor: pointer;
 }
 
 .countries__continent:hover {
-    background-color: var(--color-grey-50);
+    
+    background-color: var(--bg-change);
 }
 
 .countries__continent:focus {
